@@ -66,24 +66,24 @@ import NotFound from './src/pages/NotFound.jsx';
 export default function App() {
   return (
     <Theme appearance="light" radius="medium" scaling="100%">
-      <Router>
+      <Router basename="/Startup-Build-V1">
         <main className="min-h-screen bg-cream-50 text-charcoal">
           <Routes>
             {/* Landing Page */}
             <Route path="/" element={<LandingPage />} />
-            
+
             {/* Main App Routes */}
             <Route path="/app" element={<AppLayout />}>
               {/* Dashboard */}
               <Route index element={<Dashboard />} />
-              
+
               {/* Domains & Assets */}
               <Route path="add-domain" element={<AddDomain />} />
               <Route path="my-domains" element={<MyDomains />} />
-              
+
               {/* Integrations */}
               <Route path="integrations" element={<Integrations />} />
-              
+
               {/* External Scans */}
               <Route path="run-new-scan" element={<RunNewScan />} />
               <Route path="scan-results" element={<ScanResults />} />
@@ -92,40 +92,40 @@ export default function App() {
               <Route path="open-ports" element={<OpenPorts />} />
               <Route path="shodan-exposure" element={<ShodanExposure />} />
               <Route path="scan-history" element={<ScanHistory />} />
-              
+
               {/* Internal Assessment */}
               <Route path="start-assessment" element={<StartAssessment />} />
               <Route path="assessment-progress" element={<AssessmentProgress />} />
               <Route path="assessment-history" element={<AssessmentHistory />} />
-              
+
               {/* AI & Recommendations */}
               <Route path="risk-score" element={<RiskScore />} />
               <Route path="top-vulnerabilities" element={<TopVulnerabilities />} />
               <Route path="remediation-guides" element={<RemediationGuides />} />
               <Route path="action-plan" element={<ActionPlan />} />
-              
+
               {/* Security Connectors */}
               <Route path="microsoft365-setup" element={<Microsoft365Setup />} />
               <Route path="google-workspace-setup" element={<GoogleWorkspaceSetup />} />
               <Route path="connection-status" element={<ConnectionStatus />} />
-              
+
               {/* Reports */}
               <Route path="generate-report" element={<GenerateReport />} />
               <Route path="download-history" element={<DownloadHistory />} />
-              
+
               {/* Settings */}
               <Route path="organization-profile" element={<OrganizationProfile />} />
               <Route path="notification-settings" element={<NotificationSettings />} />
               <Route path="cloud-integration-management" element={<CloudIntegrationManagement />} />
             </Route>
-            
+
             {/* Admin Console */}
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AllClients />} />
               <Route path="client-details/:id" element={<ClientDetails />} />
               <Route path="platform-health" element={<PlatformHealth />} />
             </Route>
-            
+
             <Route path="*" element={<NotFound />} />
           </Routes>
           <ToastContainer
