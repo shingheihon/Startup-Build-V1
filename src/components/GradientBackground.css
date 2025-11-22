@@ -1,0 +1,67 @@
+.gradient-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.gradient-background__layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+}
+
+.gradient-background__layer--1 {
+    background: linear-gradient(135deg, #86a888 0%, #e8f5e9 50%, #86a888 100%);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+}
+
+.gradient-background__layer--2 {
+    background: radial-gradient(circle at 20% 50%, rgba(134, 168, 136, 0.3) 0%, transparent 50%);
+    background-size: 200% 200%;
+    animation: gradient-move 20s ease-in-out infinite;
+    animation-delay: -5s;
+}
+
+.gradient-background__layer--3 {
+    background: radial-gradient(circle at 80% 50%, rgba(232, 245, 233, 0.4) 0%, transparent 50%);
+    background-size: 200% 200%;
+    animation: gradient-move 25s ease-in-out infinite reverse;
+    animation-delay: -10s;
+}
+
+@keyframes gradient-shift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes gradient-move {
+
+    0%,
+    100% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .gradient-background__layer {
+        animation: none !important;
+    }
+}

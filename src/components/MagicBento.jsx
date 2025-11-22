@@ -3,10 +3,23 @@ import { gsap } from 'gsap';
 import { Shield, Zap, Lock, Globe, Activity, TrendingUp } from 'lucide-react';
 import './MagicBento.css';
 
-const DEFAULT_PARTICLE_COUNT = 12;
+const DEFAULT_PARTICLE_COUNT = 6; // Reduced from 12 for better performance
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = '134, 168, 136'; // Sage green color
 const MOBILE_BREAKPOINT = 768;
+const THROTTLE_MS = 16; // ~60fps throttling
+
+// Throttle utility function
+const throttle = (func, delay) => {
+    let lastCall = 0;
+    return (...args) => {
+        const now = Date.now();
+        if (now - lastCall >= delay) {
+            lastCall = now;
+            func(...args);
+        }
+    };
+};
 
 const cardData = [
     {
@@ -224,7 +237,7 @@ const ParticleCard = ({
             }
         };
 
-        const handleMouseMove = e => {
+        const handleMouseMove = throttle((e) => {
             if (!enableTilt && !enableMagnetism) return;
 
             const rect = element.getBoundingClientRect();
@@ -257,7 +270,7 @@ const ParticleCard = ({
                     ease: 'power2.out'
                 });
             }
-        };
+        }, THROTTLE_MS);
 
         const handleClick = e => {
             if (!clickEffect) return;
@@ -367,7 +380,7 @@ const GlobalSpotlight = ({
         document.body.appendChild(spotlight);
         spotlightRef.current = spotlight;
 
-        const handleMouseMove = e => {
+        const handleMouseMove = throttle((e) => {
             if (!spotlightRef.current || !gridRef.current) return;
 
             const section = gridRef.current.closest('.bento-section');
@@ -433,7 +446,7 @@ const GlobalSpotlight = ({
                 duration: targetOpacity > 0 ? 0.2 : 0.5,
                 ease: 'power2.out'
             });
-        };
+        }, THROTTLE_MS);
 
         const handleMouseLeave = () => {
             isInsideSection.current = false;

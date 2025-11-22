@@ -14,6 +14,7 @@ const ExpertCard = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                     className="bg-white rounded-2xl shadow-xl p-4 flex items-center space-x-4 max-w-xs"
                 >
@@ -121,6 +122,7 @@ const RevenueCard = () => {
                                 key={cert.name}
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
                                 transition={{ delay: i * 0.2 }}
                                 className="px-4 py-3 flex items-center justify-between hover:bg-sage-50 transition-colors cursor-pointer group/item"
                             >
@@ -159,6 +161,7 @@ const SlackCard = () => {
                 <motion.div
                     initial={{ scale: 0.9, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
                     transition={{ type: "spring", stiffness: 200, damping: 20 }}
                     className="bg-white rounded-2xl shadow-xl p-4 max-w-xs w-full"
                 >

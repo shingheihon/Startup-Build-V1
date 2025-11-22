@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Shield, Search, Cloud, Bot, CheckCircle, ArrowRight, Zap, Lock, Globe, Activity, TrendingUp, Users } from 'lucide-react';
+import { Shield, Bot, CheckCircle, ArrowRight, Zap, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import EverythingYouNeed from '../components/EverythingYouNeed';
 import MagicBento from '../components/MagicBento';
-import PixelBlast from '../components/PixelBlast';
+import Silk from '../components/Silk';
 import TestimonialCarousel from '../components/TestimonialCarousel';
 import AnimatedStats from '../components/AnimatedStats';
 import IntegrationShowcase from '../components/IntegrationShowcase';
 
 const LandingPage = () => {
   const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
-
-
 
   const trustedBy = [
     'Acme Corp',
@@ -28,16 +24,16 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
             <div className="flex items-center space-x-2">
-              <Shield className="w-8 h-8 text-sage-500" />
-              <span className="text-xl font-bold text-charcoal">Startup</span>
+              <Shield className="w-8 h-8 text-white" />
+              <span className="text-xl font-bold text-white">Startup</span>
             </div>
             <Link
               to="/app"
-              className="px-6 py-2 bg-sage-500 text-white rounded-lg hover:bg-sage-600 transition-all shadow-sm hover:shadow-md"
+              className="px-6 py-2.5 bg-white text-charcoal rounded-full hover:bg-gray-100 transition-all shadow-sm hover:shadow-md font-medium"
             >
               Sign In
             </Link>
@@ -46,95 +42,54 @@ const LandingPage = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-        {/* PixelBlast Background - Fixed to viewport */}
-        <div className="fixed top-0 left-0 w-full h-screen z-0 opacity-60">
-          <PixelBlast
-            variant="circle"
-            pixelSize={6}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Silk Background */}
+        <div className="absolute inset-0 z-0">
+          <Silk
+            speed={3}
+            scale={1}
             color="#86a888"
-            patternScale={3}
-            patternDensity={1.2}
-            pixelSizeJitter={0.5}
-            enableRipples
-            rippleSpeed={0.4}
-            rippleThickness={0.12}
-            rippleIntensityScale={1.5}
-            liquid
-            liquidStrength={0.12}
-            liquidRadius={1.2}
-            liquidWobbleSpeed={5}
-            speed={0.6}
-            edgeFade={0.25}
-            transparent
+            noiseIntensity={1.5}
+            rotation={0}
           />
         </div>
 
-
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            style={{ opacity, scale }}
-          >
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight drop-shadow-sm">
-              <span className="text-sage-500">Cybersecurity</span>
-              <br />
-              <span className="text-sage-500">
-                made simple
-              </span>
-            </h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto drop-shadow-sm"
-            >
-              Understand your cyber posture in 5 minutes.
-              <br />
-              External scans, internal checks, and AI-driven advice — all in one dashboard.
-            </motion.p>
-
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Heading */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="mb-12"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
             >
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-6">
+                Cybersecurity,
+                <br />
+                <span className="text-white/90">made simple</span>
+              </h1>
+            </motion.div>
+
+            {/* Right: Description & CTA */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-8"
+            >
+              <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-xl">
+                Understand your cyber posture in 5 minutes. External scans, internal checks, and AI-driven advice — all in one dashboard.
+              </p>
+
               <Link
                 to="/app"
-                className="inline-flex items-center px-8 py-4 bg-sage-500 text-white text-lg font-semibold rounded-xl hover:bg-sage-600 transition-all shadow-lg hover:shadow-xl hover:scale-105 group"
+                className="inline-flex items-center px-8 py-4 bg-white text-charcoal text-lg font-semibold rounded-full hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:scale-105 group"
               >
                 Open Prototype
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
-          </motion.div>
-
-          {/* Trusted By Section */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
-            className="mt-16"
-          >
-            <p className="text-sm text-gray-500 mb-6 uppercase tracking-wider font-semibold">Trusted by the world's most innovative teams</p>
-            <div className="flex flex-wrap items-center justify-center gap-8 opacity-50">
-              {trustedBy.map((company, index) => (
-                <motion.div
-                  key={company}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.2 + index * 0.1 }}
-                  className="text-gray-700 font-semibold text-lg"
-                >
-                  {company}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Scroll Indicator */}
@@ -143,11 +98,11 @@ const LandingPage = () => {
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
         >
-          <div className="w-6 h-10 border-2 border-sage-500 rounded-full flex items-start justify-center p-2">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-1.5 h-1.5 bg-sage-500 rounded-full"
+              className="w-1.5 h-1.5 bg-white/50 rounded-full"
             />
           </div>
         </motion.div>
