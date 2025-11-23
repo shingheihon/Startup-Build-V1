@@ -39,7 +39,7 @@ const TestimonialCarousel = () => {
                     className="relative"
                 >
                     {/* Card */}
-                    <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
+                    <div className="relative bg-white/5 backdrop-blur-md rounded-2xl p-8 shadow-lg border border-white/10 hover:border-white/20 transition-all duration-300">
                         {/* Quote mark */}
                         <div className="absolute -top-4 -left-4 w-12 h-12 bg-sage-500 rounded-full flex items-center justify-center text-white text-3xl font-serif">
                             "
@@ -63,7 +63,7 @@ const TestimonialCarousel = () => {
                         </div>
 
                         {/* Quote */}
-                        <p className="text-gray-700 mb-6 leading-relaxed italic">
+                        <p className="text-gray-200 mb-6 leading-relaxed italic">
                             {testimonial.quote}
                         </p>
 
@@ -73,8 +73,8 @@ const TestimonialCarousel = () => {
                                 {testimonial.image}
                             </div>
                             <div>
-                                <div className="font-bold text-charcoal">{testimonial.name}</div>
-                                <div className="text-sm text-gray-500">{testimonial.role}</div>
+                                <div className="font-bold text-white">{testimonial.name}</div>
+                                <div className="text-sm text-gray-400">{testimonial.role}</div>
                             </div>
                             <CheckCircle className="w-5 h-5 text-sage-500 ml-auto" />
                         </div>
