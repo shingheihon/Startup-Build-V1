@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import EverythingYouNeed from '../components/EverythingYouNeed';
 import MagicBento from '../components/MagicBento';
 import Silk from '../components/Silk';
+import UrgencySection from '../components/UrgencySection';
 import TestimonialCarousel from '../components/TestimonialCarousel';
 import AnimatedStats from '../components/AnimatedStats';
 import IntegrationShowcase from '../components/IntegrationShowcase';
@@ -107,6 +108,9 @@ const LandingPage = () => {
           </div>
         </motion.div>
       </section>
+
+      {/* Urgency Section */}
+      <UrgencySection />
 
       {/* Everything You Need Section */}
       <EverythingYouNeed />
