@@ -116,7 +116,7 @@ const LandingPage = () => {
       <EverythingYouNeed />
 
       {/* Intuitive Interface Section */}
-      <section className="relative z-20 py-24 bg-gradient-to-b from-white to-sage-50">
+      <section className="relative z-20 py-24 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -125,10 +125,10 @@ const LandingPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-charcoal mb-6">
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Intuitive interface
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Celebrate the joy of accomplishment with an app designed to track your progress,
               motivate your efforts, and celebrate your successes, one task at a time.
             </p>
@@ -142,7 +142,7 @@ const LandingPage = () => {
             transition={{ duration: 1 }}
             className="relative max-w-5xl mx-auto"
           >
-            <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
+            <div className="bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-white/20">
               <div className="flex items-center space-x-2 mb-6">
                 <div className="w-3 h-3 rounded-full bg-red-400" />
                 <div className="w-3 h-3 rounded-full bg-yellow-400" />
@@ -151,13 +151,13 @@ const LandingPage = () => {
 
               <div className="space-y-6">
                 {/* Mock Dashboard Content */}
-                <div className="flex items-center justify-between p-6 bg-gradient-to-r from-sage-50 to-transparent rounded-xl border border-sage-100">
+                <div className="flex items-center justify-between p-6 bg-white/5 rounded-xl border border-white/10">
                   <div>
-                    <div className="text-sm text-gray-500 mb-1">Security Score</div>
-                    <div className="text-4xl font-bold text-charcoal">72/100</div>
+                    <div className="text-sm text-gray-400 mb-1">Security Score</div>
+                    <div className="text-4xl font-bold text-white">72/100</div>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Activity className="w-8 h-8 text-sage-500" />
+                    <Activity className="w-8 h-8 text-sage-400" />
                   </div>
                 </div>
 
@@ -167,9 +167,9 @@ const LandingPage = () => {
                     { label: 'Warnings', value: '5', color: 'yellow' },
                     { label: 'Passed', value: '12', color: 'green' }
                   ].map((stat) => (
-                    <div key={stat.label} className="p-4 bg-gray-50 rounded-xl">
-                      <div className="text-xs text-gray-500 mb-1">{stat.label}</div>
-                      <div className={`text-2xl font-bold text-${stat.color}-600`}>{stat.value}</div>
+                    <div key={stat.label} className="p-4 bg-white/5 rounded-xl border border-white/10">
+                      <div className="text-xs text-gray-400 mb-1">{stat.label}</div>
+                      <div className={`text-2xl font-bold text-${stat.color}-400`}>{stat.value}</div>
                     </div>
                   ))}
                 </div>
@@ -197,7 +197,7 @@ const LandingPage = () => {
       </section>
 
       {/* Magic Bento Grid Section */}
-      <section className="relative z-20 py-24 bg-white">
+      <section className="relative z-20 py-24 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -206,10 +206,10 @@ const LandingPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-charcoal mb-6">
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Powerful features at your fingertips
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Everything you need to secure your infrastructure, all in one beautiful dashboard.
             </p>
           </motion.div>
@@ -219,7 +219,7 @@ const LandingPage = () => {
       </section>
 
       {/* Animated Stats Section */}
-      <section className="relative z-20 py-24 bg-gradient-to-b from-white to-sage-50">
+      <section className="relative z-20 py-24 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -228,10 +228,10 @@ const LandingPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-charcoal mb-6">
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Trusted by industry leaders
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Join thousands of companies protecting their digital assets with our platform.
             </p>
           </motion.div>
@@ -241,7 +241,7 @@ const LandingPage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="relative z-20 py-24 bg-sage-50">
+      <section className="relative z-20 py-24 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -250,10 +250,10 @@ const LandingPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-charcoal mb-6">
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
               What our customers say
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Don't just take our word for it - hear from security leaders who trust us.
             </p>
           </motion.div>
@@ -263,7 +263,7 @@ const LandingPage = () => {
       </section>
 
       {/* Integrations Section */}
-      <section className="relative z-20 py-24 bg-white">
+      <section className="relative z-20 py-24 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -272,10 +272,10 @@ const LandingPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-charcoal mb-6">
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Seamless integrations
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Connect with your favorite tools and platforms in just a few clicks.
             </p>
           </motion.div>
@@ -285,7 +285,7 @@ const LandingPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative z-20 py-24 bg-sage-500 text-white">
+      <section className="relative z-20 py-24 bg-transparent text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -311,7 +311,7 @@ const LandingPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-20 bg-charcoal text-white py-12">
+      <footer className="relative z-20 bg-transparent text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">

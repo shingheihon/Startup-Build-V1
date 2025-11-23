@@ -36,7 +36,7 @@ const AnimatedStats = () => {
                         <div className="absolute inset-0 bg-sage-400 blur-3xl opacity-20 rounded-full" />
 
                         {/* Number */}
-                        <div className="relative text-5xl md:text-6xl font-bold bg-gradient-to-r from-sage-500 to-sage-600 bg-clip-text text-transparent mb-2">
+                        <div className="relative text-5xl md:text-6xl font-bold text-white mb-2">
                             {stat.value}
                             {stat.suffix && <span className="text-3xl">{stat.suffix}</span>}
                         </div>
@@ -48,7 +48,7 @@ const AnimatedStats = () => {
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.1 + 0.4, duration: 0.6 }}
-                        className="text-gray-600 font-medium"
+                        className="text-gray-300 font-medium"
                     >
                         {stat.label}
                     </motion.div>

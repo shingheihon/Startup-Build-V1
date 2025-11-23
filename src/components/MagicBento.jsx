@@ -23,7 +23,7 @@ const throttle = (func, delay) => {
 
 const cardData = [
     {
-        color: '#f8faf9',
+        color: 'rgba(255, 255, 255, 0.05)',
         title: 'Real-time Protection',
         description: 'Monitor your infrastructure 24/7 with AI-powered threat detection',
         label: 'Security',
@@ -31,7 +31,7 @@ const cardData = [
         gradient: 'from-sage-400 to-sage-600',
     },
     {
-        color: '#f8faf9',
+        color: 'rgba(255, 255, 255, 0.05)',
         title: 'Instant Alerts',
         description: 'Get notified immediately when vulnerabilities are detected',
         label: 'Notifications',
@@ -39,7 +39,7 @@ const cardData = [
         gradient: 'from-yellow-400 to-orange-500',
     },
     {
-        color: '#f8faf9',
+        color: 'rgba(255, 255, 255, 0.05)',
         title: 'Zero Trust Security',
         description: 'Implement zero-trust architecture across your organization',
         label: 'Architecture',
@@ -47,7 +47,7 @@ const cardData = [
         gradient: 'from-purple-400 to-purple-600',
     },
     {
-        color: '#f8faf9',
+        color: 'rgba(255, 255, 255, 0.05)',
         title: 'Global Coverage',
         description: 'Protect assets across multiple regions and cloud providers',
         label: 'Worldwide',
@@ -55,7 +55,7 @@ const cardData = [
         gradient: 'from-blue-400 to-blue-600',
     },
     {
-        color: '#f8faf9',
+        color: 'rgba(255, 255, 255, 0.05)',
         title: 'Live Dashboard',
         description: 'Track security metrics in real-time with beautiful visualizations',
         label: 'Analytics',
@@ -63,7 +63,7 @@ const cardData = [
         gradient: 'from-green-400 to-green-600',
     },
     {
-        color: '#f8faf9',
+        color: 'rgba(255, 255, 255, 0.05)',
         title: 'Predictive Analytics',
         description: 'AI predicts potential threats before they become critical',
         label: 'AI-Powered',

@@ -27,7 +27,7 @@ const IntegrationShowcase = () => {
                         <div className={`w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br ${integration.color} flex items-center justify-center`}>
                             <integration.icon className="w-6 h-6 text-white" />
                         </div>
-                        <div className="text-sm font-semibold text-charcoal">{integration.name}</div>
+                        <div className="text-sm font-semibold text-white">{integration.name}</div>
                     </SpotlightCard>
                 </motion.div>
             ))}
