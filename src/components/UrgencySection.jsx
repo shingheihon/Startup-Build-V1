@@ -46,12 +46,9 @@ const UrgencySection = () => {
                     transition={{ duration: 0.8 }}
                     className="text-center mb-16"
                 >
-                    <div className="inline-flex items-center space-x-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-1.5 mb-6">
-                        <AlertTriangle className="w-4 h-4 text-red-400" />
-                        <span className="text-red-400 text-sm font-medium uppercase tracking-wider">Critical Alert</span>
-                    </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                        The cost of doing nothing.
+
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+                        The Cost of Doing Nothing.
                     </h2>
                     <p className="text-xl text-gray-400 max-w-3xl mx-auto">
                         If you don't secure your business, you're part of a trillion-dollar problem.
@@ -79,7 +76,7 @@ const UrgencySection = () => {
                                 <Counter value={10.5} prefix="$" suffix=" Trillion" decimals={1} />
                             </div>
                             <p className="text-xl text-gray-300 max-w-2xl leading-relaxed">
-                                Cybercrime isn’t just targeting big businesses, it’s a global crisis, and <span className="text-white font-bold">your small business is part of it.</span>
+                                Every year, cybercrime is expected to rack up $10.5 trillion in damages worldwide, and SMEs are some of the hardest hit. <span className="text-white font-bold">Don't let yourself become a statistic.</span>
                             </p>
                         </div>
                     </motion.div>
@@ -95,7 +92,7 @@ const UrgencySection = () => {
                         <div className="absolute -right-8 -top-8 opacity-10 group-hover:opacity-20 transition-opacity">
                             <ShieldAlert className="w-48 h-48 text-purple-500" />
                         </div>
-                        <h3 className="text-purple-400 text-lg font-medium mb-2 uppercase tracking-wider">SMBs Affected Annually</h3>
+                        <h3 className="text-purple-400 text-lg font-medium mb-2 uppercase tracking-wider">SMEs Affected Annually</h3>
                         <div className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-tight">
                             <Counter value={160} suffix="M" />
                         </div>
