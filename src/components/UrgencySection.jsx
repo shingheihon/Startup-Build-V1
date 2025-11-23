@@ -31,10 +31,10 @@ const Counter = ({ value, prefix = '', suffix = '', decimals = 0 }) => {
 
 const UrgencySection = () => {
     return (
-        <section className="py-24 bg-gray-900 text-white overflow-hidden relative">
+        <section className="py-24 bg-transparent text-white overflow-hidden relative z-10">
             {/* Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20">
-                <div className="absolute -top-24 -left-24 w-96 h-96 bg-red-500 rounded-full blur-3xl mix-blend-screen animate-pulse" style={{ animationDuration: '4s' }} />
+                {/* Removed red blur */}
                 <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-sage-500 rounded-full blur-3xl mix-blend-screen opacity-50" />
             </div>
 

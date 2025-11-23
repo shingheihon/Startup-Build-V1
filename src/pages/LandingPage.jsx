@@ -42,43 +42,43 @@ const LandingPage = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Silk Background */}
-        <div className="absolute inset-0 z-0">
-          <Silk
-            speed={3}
-            scale={1}
-            color="#86a888"
-            noiseIntensity={1.5}
-            rotation={0}
-          />
-        </div>
+      {/* Fixed Silk Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <Silk
+          speed={3}
+          scale={1}
+          color="#1e293b"
+          noiseIntensity={1.5}
+          rotation={0}
+        />
+      </div>
 
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center overflow-hidden z-10">
         {/* Content */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left: Heading */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            {/* Left: Heading - Wider column and pulled up */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
+              className="relative z-10 lg:col-span-7 lg:-mt-12"
             >
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-6">
-                Cybersecurity,
-                <br />
-                <span className="text-white/90">made simple</span>
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-none mb-6 tracking-tight">
+                <span className="block mb-2 whitespace-nowrap">Cybersecurity</span>
+                <span className="text-white/90 block">made simple.</span>
               </h1>
             </motion.div>
 
-            {/* Right: Description & CTA */}
+            {/* Right: Description & CTA - Narrower column and pushed down */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-8"
+              className="space-y-8 relative z-10 lg:col-span-5 lg:mt-52"
             >
-              <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-xl">
+              <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
                 Understand your cyber posture in 5 minutes. External scans, internal checks, and AI-driven advice — all in one dashboard.
               </p>
 
@@ -97,7 +97,7 @@ const LandingPage = () => {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
         >
           <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
             <motion.div
