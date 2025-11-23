@@ -67,7 +67,7 @@ const LandingPage = () => {
             >
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-none mb-6 tracking-tight">
                 <span className="block mb-2 whitespace-nowrap">Cybersecurity</span>
-                <span className="text-white/90 block">made simple.</span>
+                <span className="text-white/90 block">Made Simple.</span>
               </h1>
             </motion.div>
 

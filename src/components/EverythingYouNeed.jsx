@@ -92,8 +92,8 @@ const BackgroundCard = () => {
 
             {/* Text Content */}
             <div className="relative z-10 mt-6">
-                <h3 className="text-2xl font-bold text-charcoal mb-3">Security that runs in the background</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <h3 className="text-2xl font-bold text-white mb-3">Security that runs in the background</h3>
+                <p className="text-gray-300 leading-relaxed">
                     Automated evidence collection, continuous monitoring, and real-time updates keep your infrastructure secure without interrupting your workflow.
                 </p>
             </div>
