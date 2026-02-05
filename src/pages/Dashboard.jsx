@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Shield, AlertTriangle, Activity, ArrowRight, CheckCircle, Clock, ChevronRight, CheckSquare, Square, Zap, Lock, Server, Globe, Database, TrendingUp } from 'lucide-react';
+import { Shield, AlertTriangle, Activity, ArrowRight, CheckCircle, Clock, ChevronRight, CheckSquare, Square, Zap, Lock, Server, Globe, Database, TrendingUp, ChevronRight as ChevronRightIcon, ScanLine, Plus, FileText, LayoutList } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import headerBg from '../assets/header-bg.png';
 
@@ -98,8 +98,68 @@ const Dashboard = () => {
     { id: 5, title: 'Firewall Rules Changed', status: 'Warning', time: '3 days ago', icon: AlertTriangle, color: 'text-orange-500' },
   ];
 
+  // Quick Actions Configuration - Separated for cleaner code
+  const quickActions = [
+    {
+      id: 'scan',
+      label: 'Run New Scan',
+      description: 'Start security scan',
+      to: '/app/run-new-scan',
+      icon: ScanLine,
+      color: 'green',
+      bgColor: 'bg-green-50',
+      borderColor: 'border-green-200',
+      textColor: 'text-green-700',
+      iconBg: 'bg-green-100',
+      hoverBg: 'hover:bg-green-100',
+      watermarkIcon: Shield
+    },
+    {
+      id: 'domain',
+      label: 'Add Domain',
+      description: 'Register new domain',
+      to: '/app/add-domain',
+      icon: Plus,
+      color: 'slate',
+      bgColor: 'bg-slate-50',
+      borderColor: 'border-slate-200',
+      textColor: 'text-slate-700',
+      iconBg: 'bg-slate-100',
+      hoverBg: 'hover:bg-slate-100',
+      watermarkIcon: Globe
+    },
+    {
+      id: 'action',
+      label: 'Action Plan',
+      description: 'View remediation',
+      to: '/app/action-plan',
+      icon: LayoutList,
+      color: 'indigo',
+      bgColor: 'bg-indigo-50',
+      borderColor: 'border-indigo-200',
+      textColor: 'text-indigo-700',
+      iconBg: 'bg-indigo-100',
+      hoverBg: 'hover:bg-indigo-100',
+      watermarkIcon: Zap
+    },
+    {
+      id: 'report',
+      label: 'Generate Report',
+      description: 'Export security summary',
+      to: '/app/generate-report',
+      icon: FileText,
+      color: 'violet',
+      bgColor: 'bg-violet-50',
+      borderColor: 'border-violet-200',
+      textColor: 'text-violet-700',
+      iconBg: 'bg-violet-100',
+      hoverBg: 'hover:bg-violet-100',
+      watermarkIcon: Activity
+    }
+  ];
+
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 min-h-screen">
       {/* Good Morning Section */}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -314,7 +374,7 @@ const Dashboard = () => {
             </div>
           </motion.div>
 
-          {/* Quick Actions Box */}
+          {/* Quick Actions Box - Redesigned */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -323,78 +383,56 @@ const Dashboard = () => {
           >
             <h3 className="text-gray-500 text-sm font-bold uppercase tracking-wider mb-6">Quick Actions</h3>
 
-            <div className="flex-1 grid grid-cols-2 gap-4">
-              {/* Run a Scan Button */}
-              <Link
-                to="/app/run-new-scan"
-                style={{
-                  backgroundColor: '#4a7c59',
-                  color: 'white',
-                  padding: '20px',
-                  borderRadius: '12px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  textAlign: 'center',
-                  textDecoration: 'none',
-                  gap: '12px',
-                  border: '2px solid #3d6b4a',
-                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.15)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-                }}
-              >
-                <Shield size={32} style={{ color: 'white' }} />
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <div style={{ fontWeight: 'bold', fontSize: '16px', color: 'white' }}>Run a Scan</div>
-                  <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.85)' }}>Start a new security scan</div>
-                </div>
-              </Link>
+            <div className="flex-1 flex flex-col space-y-3">
+              {quickActions.map((action) => (
+                <Link
+                  key={action.id}
+                  to={action.to}
+                  className={`
+                    group relative overflow-hidden rounded-xl border-2 ${action.borderColor} ${action.bgColor} ${action.hoverBg}
+                    transition-all duration-300 ease-out
+                    hover:shadow-md hover:scale-[1.02] active:scale-[0.98]
+                    flex items-center justify-between p-4
+                  `}
+                >
+                  {/* Subtle watermark icon in background */}
+                  <action.watermarkIcon
+                    className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 text-${action.color}-200 opacity-10 w-24 h-24 pointer-events-none transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12`}
+                    strokeWidth={1}
+                  />
 
-              {/* Add Domain Button */}
-              <Link
-                to="/app/add-domain"
-                style={{
-                  backgroundColor: '#2d3748',
-                  color: 'white',
-                  padding: '20px',
-                  borderRadius: '12px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  textAlign: 'center',
-                  textDecoration: 'none',
-                  gap: '12px',
-                  border: '2px solid #1a202c',
-                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.15)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-                }}
-              >
-                <Globe size={32} style={{ color: 'white' }} />
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <div style={{ fontWeight: 'bold', fontSize: '16px', color: 'white' }}>Add Domain</div>
-                  <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.85)' }}>Register a new domain</div>
-                </div>
-              </Link>
+                  {/* Left side: Icon and text */}
+                  <div className="flex items-center gap-4 relative z-10">
+                    <div className={`
+                      w-10 h-10 rounded-lg ${action.iconBg} ${action.textColor}
+                      flex items-center justify-center
+                      transition-transform duration-300 group-hover:scale-110
+                    `}>
+                      <action.icon className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className={`font-bold text-sm ${action.textColor}`}>
+                        {action.label}
+                      </span>
+                      <span className="text-xs text-gray-500">
+                        {action.description}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Right side: Arrow indicator */}
+                  <div className={`
+                    relative z-10 w-8 h-8 rounded-full bg-white/60 backdrop-blur-sm
+                    flex items-center justify-center
+                    border border-${action.color}-200/50
+                    transition-all duration-300
+                    group-hover:bg-white group-hover:shadow-sm
+                    group-hover:translate-x-1
+                  `}>
+                    <ChevronRightIcon className={`w-4 h-4 ${action.textColor}`} />
+                  </div>
+                </Link>
+              ))}
             </div>
           </motion.div>
 
@@ -423,9 +461,9 @@ const Dashboard = () => {
                   >
                     {/* Colored Strip */}
                     <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${vuln.severity === 'Critical' ? 'bg-red-600' :
-                        vuln.severity === 'High' ? 'bg-orange-500' :
-                          vuln.severity === 'Medium' ? 'bg-yellow-500' :
-                            'bg-sky-600'
+                      vuln.severity === 'High' ? 'bg-orange-500' :
+                        vuln.severity === 'Medium' ? 'bg-yellow-500' :
+                          'bg-sky-600'
                       }`} />
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                       {/* Left: Icon + Info */}
@@ -496,7 +534,7 @@ const Dashboard = () => {
               transition={{ delay: 0.5 }}
               className="bg-white rounded-xl border border-warm-grey shadow-sm h-full flex flex-col mt-1"
             >
-              <div className="p-4 space-y-4 flex-1 overflow-y-auto max-h-[600px]">
+              <div className="p-4 space-y-4 flex-1">
                 {recentActivity.map((activity, index) => (
                   <div key={activity.id} className="flex items-start space-x-3 pb-4 border-b border-gray-100 last:border-0 last:pb-0">
                     <div className={`p-2 rounded-full bg-gray-50 flex-shrink-0 ${activity.color}`}>
