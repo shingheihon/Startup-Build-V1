@@ -16,12 +16,15 @@ export default {
           100: '#FAF9F6',
         },
         sage: {
-          500: '#A8BBA6',
+          50: '#E6F4F7',
+          500: '#1B8A9E',
+          600: '#157080',
+          700: '#0F5562',
         },
         warm: {
           grey: '#E5E1DA',
         },
-        charcoal: '#2D3748',
+        charcoal: '#0F3052',
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -29,8 +32,8 @@ export default {
       },
       keyframes: {
         glow: {
-          '0%': { boxShadow: '0 0 5px rgba(168, 187, 166, 0.5)' },
-          '100%': { boxShadow: '0 0 20px rgba(168, 187, 166, 0.8)' },
+          '0%': { boxShadow: '0 0 5px rgba(27, 138, 158, 0.5)' },
+          '100%': { boxShadow: '0 0 20px rgba(27, 138, 158, 0.8)' },
         }
       }
     },
