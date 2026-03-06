@@ -47,11 +47,11 @@ const AppLayout = () => {
       ]
     },
     {
-      name: 'External Scans',
+      name: 'Quick Scans',
       key: 'scans',
       icon: Search,
       items: [
-        { name: 'Run New Scan', href: '/app/run-new-scan', icon: Search },
+        { name: 'Run Quick Scan', href: '/app/run-new-scan', icon: Search },
         { name: 'Scan Results', href: '/app/scan-results', icon: FileText },
         { name: 'DNS Health', href: '/app/dns-health', icon: Globe },
         { name: 'SSL/TLS Analysis', href: '/app/ssl-analysis', icon: Shield },
@@ -114,8 +114,8 @@ const AppLayout = () => {
       <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-warm-grey transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}>
         <div className="flex items-center justify-between h-16 px-4 border-b border-warm-grey">
           <div className="flex items-center space-x-2">
-            <Shield className="w-8 h-8 text-sage-500" />
-            <span className="text-xl font-bold text-charcoal">Startup</span>
+            <img src="/Startup-Build-V1/safe-surf-icon.png" alt="Safe Surf" className="w-8 h-8 rounded" />
+            <span className="text-xl font-bold text-charcoal">SafeSurf</span>
           </div>
           <button
             onClick={() => setSidebarOpen(false)}
@@ -130,8 +130,8 @@ const AppLayout = () => {
           <Link
             to="/app"
             className={`flex items-center space-x-2 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${location.pathname === '/app'
-                ? 'bg-sage-500 text-white'
-                : 'text-gray-700 hover:bg-gray-100'
+              ? 'bg-sage-500 text-white'
+              : 'text-gray-700 hover:bg-gray-100'
               }`}
           >
             <BarChart3 className="w-4 h-4" />

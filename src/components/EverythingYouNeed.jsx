@@ -6,7 +6,7 @@ import { CheckCircle, Download, MessageSquare, Shield, Clock, FileText, Bell, Sl
 
 const ExpertCard = () => {
     return (
-        <div className="bg-gray-50 rounded-2xl p-8 h-full flex flex-col justify-between overflow-hidden relative group hover:shadow-lg transition-shadow duration-300">
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 h-full flex flex-col justify-between overflow-hidden relative group hover:border-white/20 transition-colors duration-300">
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent to-sage-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             {/* Animation Area */}
@@ -14,6 +14,7 @@ const ExpertCard = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                     className="bg-white rounded-2xl shadow-xl p-4 flex items-center space-x-4 max-w-xs"
                 >
@@ -38,8 +39,8 @@ const ExpertCard = () => {
 
             {/* Text Content */}
             <div className="relative z-10 mt-6">
-                <h3 className="text-2xl font-bold text-charcoal mb-3">Your dedicated security expert</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <h3 className="text-2xl font-bold text-white mb-3">Your dedicated security expert</h3>
+                <p className="text-gray-300 leading-relaxed">
                     An AI-driven security analyst that works 24/7, identifying vulnerabilities, prioritizing risks, and suggesting fixes before you even know there's a problem.
                 </p>
             </div>
@@ -49,12 +50,12 @@ const ExpertCard = () => {
 
 const BackgroundCard = () => {
     return (
-        <div className="bg-gray-50 rounded-2xl p-8 h-full flex flex-col justify-between overflow-hidden relative group hover:shadow-lg transition-shadow duration-300">
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 h-full flex flex-col justify-between overflow-hidden relative group hover:border-white/20 transition-colors duration-300">
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent to-sage-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             {/* Animation Area */}
             <div className="h-48 flex items-center justify-center relative z-10">
-                <div className="bg-white rounded-2xl shadow-xl p-6 w-full max-w-xs">
+                <div className="bg-white rounded-2xl shadow-xl p-6 w-full max-w-xs border border-gray-100">
                     <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center space-x-2">
                             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
@@ -91,8 +92,8 @@ const BackgroundCard = () => {
 
             {/* Text Content */}
             <div className="relative z-10 mt-6">
-                <h3 className="text-2xl font-bold text-charcoal mb-3">Security that runs in the background</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <h3 className="text-2xl font-bold text-white mb-3">Security that runs in the background</h3>
+                <p className="text-gray-300 leading-relaxed">
                     Automated evidence collection, continuous monitoring, and real-time updates keep your infrastructure secure without interrupting your workflow.
                 </p>
             </div>
@@ -102,7 +103,7 @@ const BackgroundCard = () => {
 
 const RevenueCard = () => {
     return (
-        <div className="bg-gray-50 rounded-2xl p-8 h-full flex flex-col justify-between overflow-hidden relative group hover:shadow-lg transition-shadow duration-300">
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 h-full flex flex-col justify-between overflow-hidden relative group hover:border-white/20 transition-colors duration-300">
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent to-sage-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             {/* Animation Area */}
@@ -121,6 +122,7 @@ const RevenueCard = () => {
                                 key={cert.name}
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
                                 transition={{ delay: i * 0.2 }}
                                 className="px-4 py-3 flex items-center justify-between hover:bg-sage-50 transition-colors cursor-pointer group/item"
                             >
@@ -140,8 +142,8 @@ const RevenueCard = () => {
 
             {/* Text Content */}
             <div className="relative z-10 mt-6">
-                <h3 className="text-2xl font-bold text-charcoal mb-3">Leverage compliance for growth</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <h3 className="text-2xl font-bold text-white mb-3">Leverage compliance for growth</h3>
+                <p className="text-gray-300 leading-relaxed">
                     Instantly generate audit-ready reports and trust badges. Show customers and prospects you're trustworthy and accelerate your sales cycles.
                 </p>
             </div>
@@ -151,7 +153,7 @@ const RevenueCard = () => {
 
 const SlackCard = () => {
     return (
-        <div className="bg-gray-50 rounded-2xl p-8 h-full flex flex-col justify-between overflow-hidden relative group hover:shadow-lg transition-shadow duration-300">
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 h-full flex flex-col justify-between overflow-hidden relative group hover:border-white/20 transition-colors duration-300">
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent to-sage-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             {/* Animation Area */}
@@ -159,8 +161,9 @@ const SlackCard = () => {
                 <motion.div
                     initial={{ scale: 0.9, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
                     transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                    className="bg-white rounded-2xl shadow-xl p-4 max-w-xs w-full"
+                    className="bg-white rounded-2xl shadow-xl p-4 max-w-xs w-full border border-gray-100"
                 >
                     <div className="flex items-start space-x-3">
                         <div className="w-10 h-10 rounded-lg bg-gray-900 flex items-center justify-center flex-shrink-0">
@@ -168,7 +171,7 @@ const SlackCard = () => {
                         </div>
                         <div className="flex-1">
                             <div className="flex items-center justify-between mb-1">
-                                <span className="font-bold text-charcoal text-sm">Startup Bot</span>
+                                <span className="font-bold text-charcoal text-sm">SafeSurf Bot</span>
                                 <span className="text-xs text-gray-400">APP 9:41 AM</span>
                             </div>
                             <p className="text-sm text-gray-600 mb-3">
@@ -189,8 +192,8 @@ const SlackCard = () => {
 
             {/* Text Content */}
             <div className="relative z-10 mt-6">
-                <h3 className="text-2xl font-bold text-charcoal mb-3">Get stuff done on Slack</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <h3 className="text-2xl font-bold text-white mb-3">Get stuff done on Slack</h3>
+                <p className="text-gray-300 leading-relaxed">
                     Receive instant alerts, approve workflows, and talk directly with your AI security officer - all without leaving Slack.
                 </p>
             </div>
@@ -202,7 +205,7 @@ const SlackCard = () => {
 
 const EverythingYouNeed = () => {
     return (
-        <section className="relative z-20 py-24 bg-white">
+        <section className="relative z-20 py-24 bg-transparent">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -211,10 +214,10 @@ const EverythingYouNeed = () => {
                     transition={{ duration: 0.8 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-5xl md:text-6xl font-bold text-charcoal mb-6">
+                    <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
                         Put security on autopilot
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <p className="text-xl text-gray-300 max-w-3xl mx-auto">
                         Run your entire security program with a blend of expert AI support and automation.
                         We handle the work behind the scenes while you focus on building.
                     </p>

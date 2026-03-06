@@ -3,7 +3,7 @@ import {
   Globe,
   Plus,
   Search,
-  Eye,
+  Pencil,
   Trash2,
   RefreshCw,
   CheckCircle,
@@ -171,6 +171,7 @@ const MyDomains = () => {
   const stats = {
     total: domains.length,
     active: domains.filter(d => d.status === 'active').length,
+    atRisk: domains.filter(d => (d.criticalIssues || 0) + (d.highIssues || 0) > 0).length,
     totalIssues: domains.reduce((sum, d) => sum + (d.criticalIssues || 0) + (d.highIssues || 0) + (d.mediumIssues || 0), 0)
   };
 
@@ -187,23 +188,14 @@ const MyDomains = () => {
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
-            <Globe className="w-7 h-7 text-sage-600" />
-            My Domains
-          </h1>
-          <p className="text-gray-600 mt-1">
-            Monitor and manage your domain security posture
-          </p>
-        </div>
-        <Link
-          to="/app/add-domain"
-          className="inline-flex items-center justify-center px-4 py-2 bg-sage-600 text-white rounded-lg hover:bg-sage-700 transition-all shadow-sm hover:shadow-md font-medium"
-        >
-          <Plus className="w-4 h-4 mr-2" />
-          Add Domain
-        </Link>
+      <div>
+        <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
+          <Globe className="w-7 h-7 text-sage-600" />
+          My Domains
+        </h1>
+        <p className="text-gray-600 mt-1">
+          Monitor and manage your domain security posture
+        </p>
       </div>
 
       {/* Stats Overview - Simplified */}
@@ -287,6 +279,14 @@ const MyDomains = () => {
               <ChevronDown className="w-4 h-4 absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
             </div>
           </div>
+
+          <Link
+            to="/app/add-domain"
+            className="inline-flex items-center justify-center px-4 py-2 bg-sage-600 text-white rounded-lg hover:bg-sage-700 transition-all shadow-sm hover:shadow-md font-medium text-sm"
+          >
+            <Plus className="w-4 h-4 mr-2" />
+            Add Domain
+          </Link>
         </div>
       </div>
 
@@ -302,7 +302,7 @@ const MyDomains = () => {
                 <th className="text-left py-3 px-4 font-semibold text-gray-700 text-sm">Issues</th>
                 <th className="text-left py-3 px-4 font-semibold text-gray-700 text-sm">Health</th>
                 <th className="text-left py-3 px-4 font-semibold text-gray-700 text-sm">Last Scan</th>
-                <th className="text-right py-3 px-4 font-semibold text-gray-700 text-sm">Actions</th>
+                <th className="text-left py-3 px-4 font-semibold text-gray-700 text-sm">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -389,23 +389,23 @@ const MyDomains = () => {
                         {domain.lastScan}
                       </span>
                     </td>
-                    <td className="py-4 px-4 text-right">
-                      <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <td className="py-4 px-4">
+                      <div className="flex items-center gap-1">
                         <button
-                          className="p-2 text-gray-600 hover:text-sage-600 hover:bg-sage-50 rounded-lg transition-colors"
-                          title="View Details"
+                          className="p-2 text-gray-400 hover:text-sage-600 hover:bg-sage-50 rounded-lg transition-colors"
+                          title="Edit Domain"
                         >
-                          <Eye className="w-4 h-4" />
+                          <Pencil className="w-4 h-4" />
                         </button>
                         <button
-                          className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                          className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
                           title="Rescan"
                           disabled={domain.status === 'scanning'}
                         >
                           <RefreshCw className={`w-4 h-4 ${domain.status === 'scanning' ? 'animate-spin' : ''}`} />
                         </button>
                         <button
-                          className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                          className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                           title="Delete"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -463,11 +463,11 @@ const MyDomains = () => {
           <div className="bg-white rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
             {/* Modal Header */}
             <div className={`px-6 py-4 flex items-center justify-between border-b ${activeVulnerabilities.severity === 'critical' ? 'bg-red-50' :
-                activeVulnerabilities.severity === 'high' ? 'bg-orange-50' : 'bg-amber-50'
+              activeVulnerabilities.severity === 'high' ? 'bg-orange-50' : 'bg-amber-50'
               }`}>
               <div className="flex items-center gap-3">
                 <AlertCircle className={`w-5 h-5 ${activeVulnerabilities.severity === 'critical' ? 'text-red-600' :
-                    activeVulnerabilities.severity === 'high' ? 'text-orange-600' : 'text-amber-600'
+                  activeVulnerabilities.severity === 'high' ? 'text-orange-600' : 'text-amber-600'
                   }`} />
                 <h2 className="text-lg font-bold text-gray-900">{activeVulnerabilities.title}</h2>
               </div>

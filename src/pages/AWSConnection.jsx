@@ -50,10 +50,10 @@ const AWSConnection = () => {
             <Cloud className="w-16 h-16 text-orange-500 mx-auto mb-4" />
             <h2 className="text-xl font-semibold text-charcoal mb-4">Connect Your AWS Account</h2>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Securely connect your AWS account using OAuth to automatically discover EC2 instances, 
+              Securely connect your AWS account using OAuth to automatically discover EC2 instances,
               Elastic IPs, and Route53 domains. This provides implicit verification that you own these assets.
             </p>
-            
+
             <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6 max-w-2xl mx-auto">
               <h3 className="font-semibold text-green-800 mb-2">Benefits of AWS Integration:</h3>
               <ul className="text-sm text-green-700 space-y-1 text-left">
@@ -101,7 +101,7 @@ const AWSConnection = () => {
                 {discoveredAssets.length} assets found
               </span>
             </div>
-            
+
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
@@ -185,9 +185,9 @@ const AWSConnection = () => {
               <div className="text-center mb-6">
                 <Cloud className="w-12 h-12 text-orange-500 mx-auto mb-4" />
                 <h2 className="text-xl font-bold text-charcoal">AWS Authorization</h2>
-                <p className="text-gray-600 mt-2">Startup wants to access your AWS account</p>
+                <p className="text-gray-600 mt-2">SafeSurf wants to access your AWS account</p>
               </div>
-              
+
               <div className="bg-gray-50 rounded-lg p-4 mb-6">
                 <h3 className="font-medium text-charcoal mb-2">This app will be able to:</h3>
                 <ul className="text-sm text-gray-600 space-y-1">
@@ -197,7 +197,7 @@ const AWSConnection = () => {
                   <li>• View resource tags and metadata</li>
                 </ul>
               </div>
-              
+
               <div className="flex space-x-3">
                 <button
                   onClick={() => handleMockConsent(false)}

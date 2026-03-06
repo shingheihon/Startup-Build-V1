@@ -11,7 +11,7 @@ const AddDomain = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!tosAccepted) return;
-    
+
     setIsSubmitting(true);
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 2000));
@@ -30,8 +30,8 @@ const AddDomain = () => {
           </p>
           <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
             <p className="text-green-800 text-sm">
-              ✓ Domain verified and added<br/>
-              ✓ Initial scan queued<br/>
+              ✓ Domain verified and added<br />
+              ✓ Initial scan queued<br />
               ✓ You'll receive results within 5 minutes
             </p>
           </div>
@@ -84,7 +84,7 @@ const AddDomain = () => {
               <div>
                 <h3 className="font-medium text-yellow-800">Domain Authorization</h3>
                 <p className="text-sm text-yellow-700 mt-1">
-                  You may only scan domains you own or control. Unauthorized scanning may be illegal 
+                  You may only scan domains you own or control. Unauthorized scanning may be illegal
                   and violate applicable laws.
                 </p>
               </div>
@@ -102,8 +102,8 @@ const AddDomain = () => {
                 required
               />
               <label htmlFor="tos" className="text-sm text-charcoal">
-                I confirm I own this domain or have written authorization to scan it. 
-                I understand that unauthorized scanning may be illegal and I accept full responsibility. 
+                I confirm I own this domain or have written authorization to scan it.
+                I understand that unauthorized scanning may be illegal and I accept full responsibility.
                 I agree to the{' '}
                 <button
                   type="button"
@@ -152,26 +152,26 @@ const AddDomain = () => {
                   <li>You have proper authorization to conduct security scans on these domains</li>
                   <li>You will not use our services to scan domains without proper authorization</li>
                 </ul>
-                
+
                 <h3 className="font-semibold text-charcoal">Legal Compliance</h3>
                 <p>
-                  Unauthorized scanning of computer systems may violate applicable laws including 
+                  Unauthorized scanning of computer systems may violate applicable laws including
                   but not limited to the Computer Fraud and Abuse Act and similar laws in other jurisdictions.
                 </p>
-                
+
                 <h3 className="font-semibold text-charcoal">Indemnification</h3>
                 <p>
-                  You agree to indemnify and hold harmless Startup and its affiliates from any claims, 
+                  You agree to indemnify and hold harmless SafeSurf and its affiliates from any claims,
                   damages, or legal actions arising from your use of our scanning services.
                 </p>
-                
+
                 <h3 className="font-semibold text-charcoal">Limitation of Liability</h3>
                 <p>
-                  Our scanning services are provided "as is" without warranties. We are not responsible 
+                  Our scanning services are provided "as is" without warranties. We are not responsible
                   for any damages resulting from the use of our services.
                 </p>
               </div>
-              
+
               <div className="flex space-x-4 mt-6 pt-4 border-t border-warm-grey">
                 <button
                   onClick={() => setShowTos(false)}

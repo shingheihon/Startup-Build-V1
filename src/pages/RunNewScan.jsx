@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Shield, Zap, Globe, Server, Clock, ArrowRight, Activity } from 'lucide-react';
+import { Search, Shield, Zap, Globe, Server, Clock, ArrowRight, Activity, AlertTriangle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const RunNewScan = () => {
@@ -56,7 +56,7 @@ const RunNewScan = () => {
     <div className="space-y-8">
       <div className="flex justify-between items-end">
         <div>
-          <h1 className="text-3xl font-bold text-charcoal">Run New Scan</h1>
+          <h1 className="text-3xl font-bold text-charcoal">Run Quick Scan</h1>
           <p className="text-gray-600 mt-2">Initiate a security assessment for your assets.</p>
         </div>
       </div>
@@ -68,19 +68,51 @@ const RunNewScan = () => {
         className="bg-white rounded-xl border border-warm-grey p-8 shadow-sm"
       >
         <form onSubmit={handleScan} className="space-y-8">
-          {/* Target Input */}
+          {/* Target Input with Scan Button */}
           <div className="space-y-3">
             <label className="block text-sm font-medium text-gray-700">Target Asset</label>
-            <div className="relative">
-              <Globe className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <input
-                type="text"
-                placeholder="e.g., example.com, 192.168.1.1"
-                className="w-full pl-12 pr-4 py-4 rounded-lg border border-gray-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-200 transition-all outline-none text-lg"
-                value={target}
-                onChange={(e) => setTarget(e.target.value)}
-                required
-              />
+            <div className="flex gap-3">
+              <div className="relative flex-1">
+                <Globe className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <input
+                  type="text"
+                  placeholder="e.g., example.com, 192.168.1.1"
+                  className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-200 transition-all outline-none text-base"
+                  value={target}
+                  onChange={(e) => setTarget(e.target.value)}
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={isScanning}
+                className={`
+                  flex items-center px-5 py-3 rounded-lg text-white font-medium text-sm transition-all whitespace-nowrap
+                  ${isScanning
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : 'bg-charcoal hover:bg-gray-800 shadow-sm hover:shadow-md'
+                  }
+                `}
+              >
+                {isScanning ? (
+                  <>
+                    <Activity className="w-4 h-4 mr-2 animate-spin" />
+                    Scanning...
+                  </>
+                ) : (
+                  <>
+                    <Search className="w-4 h-4 mr-2" />
+                    Scan
+                  </>
+                )}
+              </button>
+            </div>
+            {/* Legal Disclaimer */}
+            <div className="flex items-start gap-2 mt-2 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+              <AlertTriangle className="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" />
+              <p className="text-xs text-amber-800">
+                Only scan domains and assets you own or have explicit written authorisation to test. Unauthorised scanning may violate applicable laws.
+              </p>
             </div>
           </div>
 
@@ -91,8 +123,8 @@ const RunNewScan = () => {
                 key={type.id}
                 onClick={() => setScanType(type.id)}
                 className={`cursor-pointer p-6 rounded-xl border-2 transition-all ${scanType === type.id
-                    ? `${type.borderColor} ${type.bgColor} ring-1 ring-offset-2 ring-${type.color.split('-')[1]}-400`
-                    : 'border-gray-100 hover:border-gray-200 hover:bg-gray-50'
+                  ? `${type.borderColor} ${type.bgColor} ring-1 ring-offset-2 ring-${type.color.split('-')[1]}-400`
+                  : 'border-gray-100 hover:border-gray-200 hover:bg-gray-50'
                   }`}
               >
                 <div className="flex justify-between items-start mb-4">
@@ -113,32 +145,7 @@ const RunNewScan = () => {
             ))}
           </div>
 
-          {/* Action Button */}
-          <div className="flex justify-end pt-4">
-            <button
-              type="submit"
-              disabled={isScanning}
-              className={`
-                flex items-center px-8 py-4 rounded-lg text-white font-medium text-lg transition-all
-                ${isScanning
-                  ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-charcoal hover:bg-gray-800 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
-                }
-              `}
-            >
-              {isScanning ? (
-                <>
-                  <Activity className="w-5 h-5 mr-2 animate-spin" />
-                  Initializing Scan...
-                </>
-              ) : (
-                <>
-                  <Search className="w-5 h-5 mr-2" />
-                  Start Assessment
-                </>
-              )}
-            </button>
-          </div>
+
         </form>
       </motion.div>
 
